@@ -1,4 +1,10 @@
-<#include "base-non-authorized.ftl"/>
+<#if isAuth == true>
+    <#include "base-with-authorization.ftl"/>
+<#else>
+    <#include "base-non-authorized.ftl"/>
+</#if>
+
+
 
 <#macro title>news</#macro>
 <#macro links>
@@ -78,16 +84,16 @@
             <div class="row justify-content-center mt-2">
                 <div class="col">
                     <div class="card card-post h-auto">
-                        <form action="http://localhost:8080/post" method="get">
+                        <form action="http://localhost:80/post" method="get">
                             <div class="media media-author">
-                                <img src="${n.getImgPath()}"
+                                <img src="${n.getPhotoPath()}"
                                      class="mr-3 img-fluid borderImg" style="width: 300px" alt="Пользователь">
                                 <div class="media-body media-author-body">
                                     <input name="id" value="${n.getId()}" type="hidden">
                                     <button type="submit" class="btn btn-link text-dark"
                                             style="font-size: 22px">${n.getHeader()}
                                     </button>
-                                    <p class="ml-3" style="font-size: 16px">${n.getDate()}</p>
+                                    <p class="ml-3" style="font-size: 16px">${n.getCreatedAt()}</p>
                                     <p style="font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${n.getPreview()}</p>
                                 </div>
                             </div>

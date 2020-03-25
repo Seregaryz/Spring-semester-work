@@ -26,7 +26,7 @@
 					</span>
 
                     <div class="wrap-input100 rs1 validate-input" data-validate="Login or E-mail is required">
-                        <input class="input100" type="text" name="login">
+                        <input class="input100" type="text" name="email">
                         <span class="label-input100">E-mail</span>
                     </div>
 

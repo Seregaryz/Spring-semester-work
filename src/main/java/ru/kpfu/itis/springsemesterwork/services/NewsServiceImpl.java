@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.kpfu.itis.springsemesterwork.models.News;
 import ru.kpfu.itis.springsemesterwork.repositories.NewsRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -25,6 +26,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public void save(News news) {
+        news.setCreatedAt(LocalDateTime.now());
         newsRepository.save(news);
     }
 }

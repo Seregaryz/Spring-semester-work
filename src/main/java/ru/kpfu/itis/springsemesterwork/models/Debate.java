@@ -22,5 +22,8 @@ public class Debate {
     private Long id;
     private String topic;
     private Date date;
-    private User creator, secondDebater;
+    @OneToOne
+    private User creator;
+    @OneToOne
+    private User secondDebater;
 }

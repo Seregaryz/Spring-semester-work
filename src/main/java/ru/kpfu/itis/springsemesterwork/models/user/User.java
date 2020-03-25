@@ -23,11 +23,10 @@ public class User {
     private String email;
     private String hashPassword;
     private String nickname;
-    private String username;
     private String surname;
+    private String name;
     private String photoPath;
     private LocalDateTime createdAt;
-
 
     @Enumerated(value = EnumType.STRING)
     private Role role;

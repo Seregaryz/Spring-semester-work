@@ -1,4 +1,8 @@
-<#include "base-non-authorized.ftl"/>
+<#if isAuth == true>
+    <#include "base-with-authorization.ftl"/>
+<#else>
+    <#include "base-non-authorized.ftl"/>
+</#if>
 
 <#macro title>post</#macro>
 
@@ -7,6 +11,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
     <style>
 
         .borderImg {
@@ -66,7 +71,7 @@
             text-decoration: none;
         }
     </style>
-    <link rel="stylesheet" href="../css/extra-styles.css">
+    <link rel="stylesheet" href="css/extra-styles.css">
 </#macro>
 
 <#macro content>
@@ -81,8 +86,8 @@
                             <div class="media media-author">
                                 <div class="media-body media-author-body">
                                     <h5 class="mt-1 text-center mb-4">${news.getHeader()}</h5>
-                                    <img src="${news.getImgPath()}" class="w-100">
-                                    <p class="text-center mt-2 font-18px">${news.getDate()}</p>
+                                    <img src="${news.getPhotoPath()}" class="w-100">
+                                    <p class="text-center mt-2 font-18px">${news.getCreatedAt()}</p>
                                     <p class="my-3 font-18px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${news.getText()}</p>
                                 </div>
                             </div>

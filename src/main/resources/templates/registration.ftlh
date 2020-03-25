@@ -89,53 +89,76 @@
     <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/sendFile.js"></script>
 </#macro>
 
 <#macro content>
     <div class="container-login100">
-        <form class="card card-block m-x-auto bg-faded form-width" action="/signUp" method="post">
-            <legend class="m-b-1 text-xs-center">Registration</legend>
-            <div class="form-group input-group">
+    <div class="row w-100">
+        <div class="col-7 ">
+            <form class="card card-block m-x-auto bg-faded form-width" action="/signUp" method="post">
+                <legend class="m-b-1 text-xs-center">Registration</legend>
+                <div class="form-group input-group">
 						<span class="has-float-label">
 							<input class="form-control" id="name" type="text" placeholder="name" name="name"/>
 							<label for="name">Name</label>
 						</span>
-                <span class="has-float-label">
+                    <span class="has-float-label">
 							<input class="form-control" id="surname" type="text" placeholder="surname" name="surname"/>
 							<label for="surname">Surname</label>
 						</span>
-            </div>
-            <div class="form-group text-center">
-                <div class="form-group input-group">
+                </div>
+                <div class="form-group text-center">
+                    <div class="form-group input-group">
 						<span class="has-float-label">
 							<input class="form-control" id="nickname" type="text" placeholder="nickname"
                                    name="nickname"/>
 							<label for="nickname">Nickname</label>
 						</span>
-                </div>
-                <div class="form-group input-group">
+                    </div>
+                    <div class="form-group input-group mt-1">
 						<span class="has-float-label">
 							<input class="form-control" id="email" type="email" placeholder="name@example.com"
                                    name="email"/>
 							<label for="email">E-mail</label>
 						</span>
-                </div>
-                <div class="form-group has-float-label">
-                    <input class="form-control" id="password" type="password" placeholder="••••••••" name="password"/>
-                    <label for="password">Password</label>
-                </div>
-                <div class="container-login100-form-btn">
+                    </div>
+                    <div id="place2">
+                    </div>
+                    <div class="form-group has-float-label">
+                        <input class="form-control" id="password" type="password" placeholder="••••••••"
+                               name="password"/>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="container-login100-form-btn">
                         <button type="submit" class="login100-form-btn">Sign up</button>
+                    </div>
+                    <p>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            <a href="/signIn">have an account? login</a>
+                        </button>
+                    </div>
                 </div>
-                <p>
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn">
-                        <a href="/signIn">have an account? login</a>
-                    </button>
+
+            </form>
+        </div>
+        <div class="col-4 mt-5">
+            <div class="my-2 mx-auto">
+                <label for="my-file-selector" style="font-size: 20px">Аватар</label>
+                <input type="file" name="photo" class="filestyle" id="photo">
+                <#--                           data-classButton="login100-form-btn"-->
+                <#--                           data-classIcon="icon-plus"-->
+                <#--                           data-buttonText="Выбрать файлы" multiple accept="image/*,image/jpeg">-->
+                <div class="dis-flex" id="place1">
+                </div>
+                <div class="container-login100-form-btn mt-5">
+                    <button class="login100-form-btn" onclick="sendFile()">Загрузить фото</button>
                 </div>
             </div>
 
-        </form>
+        </div>
+    </div>
     </div>
 </#macro>
 

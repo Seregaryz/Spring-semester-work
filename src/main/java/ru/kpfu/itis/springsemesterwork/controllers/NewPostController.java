@@ -1,6 +1,8 @@
 package ru.kpfu.itis.springsemesterwork.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,11 +19,15 @@ public class NewPostController {
     private NewsService newsService;
 
     @GetMapping("/addPost")
-    public String getNewPostPage() { return "addPost"; }
+    public String getNewPostPage(Authentication authentication, Model model) {
+        if(authentication != null)  model.addAttribute("isAuth", true);
+        else  model.addAttribute("isAuth", false);
+        return "add-post";
+    }
 
     @PostMapping("/addPost")
     public String signUp(News news) {
-        newsService.save();
-        return "redirect:/signUp";
+        newsService.save(news);
+        return "redirect:/newsList";
     }
 }

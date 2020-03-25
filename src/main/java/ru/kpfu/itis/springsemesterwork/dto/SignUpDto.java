@@ -7,7 +7,8 @@ import ru.kpfu.itis.springsemesterwork.models.user.Sex;
 public class SignUpDto {
     private String email;
     private String password;
-    private String username;
+    private String name;
+    private String surname;
     private String nickname;
     private String photoPath;
     private Sex sex;

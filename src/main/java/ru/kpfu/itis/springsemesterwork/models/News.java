@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -22,6 +23,6 @@ public class News {
     private Long id;
 
     private String header, text, preview;
-    private String img;
-    private Date date;
+    private String photoPath;
+    private LocalDateTime createdAt;
 }

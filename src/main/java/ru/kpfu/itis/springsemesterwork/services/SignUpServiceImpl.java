@@ -44,10 +44,12 @@ public class SignUpServiceImpl implements SignUpService {
         User user = User.builder()
                 .email(form.getEmail())
                 .hashPassword(passwordEncoder.encode(form.getPassword()))
-                .username(form.getUsername())
+                .name(form.getName())
+                .surname(form.getSurname())
                 .createdAt(LocalDateTime.now())
                 .state(State.NOT_CONFIRMED)
                 .role(Role.USER)
+                .photoPath(form.getPhotoPath())
                 .nickname(form.getNickname())
                 .confirmCode(UUID.randomUUID().toString())
                 .build();
