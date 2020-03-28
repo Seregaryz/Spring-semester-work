@@ -77,7 +77,7 @@
                                 <img src="${user.getPhotoPath()}" alt="Фотография" width="200" height="255"
                                      class="img-fluid user-profile-photo mb-3">
                                 <div class="mt-5">
-                                    <a href="/addpost" class="btn btn-dark">Add news</a>
+                                    <a href="/addPost" class="btn btn-dark">Add news</a>
                                 </div>
                             </div>
                             <div class="col mt-3 ml-5">
