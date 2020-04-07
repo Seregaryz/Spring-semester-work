@@ -90,6 +90,7 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/sendFile.js"></script>
+    <#import "spring.ftl" as spring />
 </#macro>
 
 <#macro content>

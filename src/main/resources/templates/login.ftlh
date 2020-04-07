@@ -14,9 +14,15 @@
     <link rel="stylesheet" type="text/css" href="css/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="css/loginUtil.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
+    <#import "spring.ftl" as spring />
 </#macro>
 
 <#macro content>
+    <head>
+        <meta charset="UTF-8">
+        <@links/>
+    </head>
+    <body>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-b-160 p-t-50">
@@ -27,28 +33,28 @@
 
                     <div class="wrap-input100 rs1 validate-input" data-validate="Login or E-mail is required">
                         <input class="input100" type="text" name="email">
-                        <span class="label-input100">E-mail</span>
+                        <span class="label-input100"><@spring.message 'signin.email'/></span>
                     </div>
 
 
                     <div class="wrap-input100 rs2 validate-input" data-validate="Password is required">
                         <input class="input100" type="password" name="password">
-                        <span class="label-input100">Password</span>
+                        <span class="label-input100"><@spring.message 'signin.password'/></span>
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn">Login</button>
+                        <button type="submit" class="login100-form-btn"><@spring.message 'base.element.login'/></button>
                     </div>
 
                     <div class="text-center w-full p-t-23">
                         <input type="checkbox" id="check" name="remember">
-                        <span class="txt1">Remember me</span>
+                        <span class="txt1"><@spring.message 'signin.remember_me'/></span>
                     </div>
                 </form>
                 <form>
                     <div class="text-center w-full p-t-23">
                         <a href="/signUp" class="txt1">
-                            Don`t have an account? Registration!
+                            <@spring.message 'signin.reg_suggestion'/>
                         </a>
                     </div>
                 </form>
@@ -64,6 +70,7 @@
     <script src="../js/daterangepicker.js"></script>
     <script src="../js/countdowntime.js"></script>
     <script src="../js/login.js"></script>
+    </body>
 </#macro>
 
 <@main/>

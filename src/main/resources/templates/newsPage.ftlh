@@ -12,8 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
+    <#import "spring.ftl" as spring />
     <style>
-
         .borderImg {
             border: 2px solid #000000;
         }
@@ -75,6 +75,11 @@
 </#macro>
 
 <#macro content>
+    <head>
+        <meta charset="UTF-8">
+        <@links/>
+    </head>
+    <body>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -102,32 +107,32 @@
                                 </div>
                                 <input type="submit" class="btn btn-dark float-right my-3" value="Publish">
                             </form>
-                            <p class="mt-5">Commentaries: </p>
-<#--                            <#list comments as c>-->
-<#--                                <div class="card-body border border-dark my-3">-->
-<#--                                    <li class="media my-4">-->
-<#--                                        <ul class="list-unstyled">-->
-<#--                                            <li class="media">-->
-<#--                                                <img src="${c.getSender().getPhotoPath()}" alt="avatar"-->
-<#--                                                     class="mr-3 img-fluid media-author-photo img-circle"-->
-<#--                                                     style="width: 50px; height: 50px;">-->
-<#--                                                <div class="media-body">-->
-<#--                                                    <form action="/profileOfUser" method="get">-->
-<#--                                                        <input name="id" value="${c.getSender().getId()}" type="hidden">-->
-<#--                                                        <button type="submit" class="btn btn-link text-dark">-->
-<#--                                                            <p class="mt-0 mb-1">${c.getSender().getNickname()}</p>-->
-<#--                                                        </button>-->
-<#--                                                    </form>-->
-<#--                                                    <p>${c.getText()}</p>-->
-<#--                                                    <p class="comment-date">-->
-<#--                                                        <small>${c.getStringDate()}</small>-->
-<#--                                                    </p>-->
-<#--                                                </div>-->
-<#--                                            </li>-->
-<#--                                        </ul>-->
-<#--                                    </li>-->
-<#--                                </div>-->
-<#--                            </#list>-->
+                            <p class="mt-5"><@spring.message 'news_page.commentaries'/></p>
+                            <#--                            <#list comments as c>-->
+                            <#--                                <div class="card-body border border-dark my-3">-->
+                            <#--                                    <li class="media my-4">-->
+                            <#--                                        <ul class="list-unstyled">-->
+                            <#--                                            <li class="media">-->
+                            <#--                                                <img src="${c.getSender().getPhotoPath()}" alt="avatar"-->
+                            <#--                                                     class="mr-3 img-fluid media-author-photo img-circle"-->
+                            <#--                                                     style="width: 50px; height: 50px;">-->
+                            <#--                                                <div class="media-body">-->
+                            <#--                                                    <form action="/profileOfUser" method="get">-->
+                            <#--                                                        <input name="id" value="${c.getSender().getId()}" type="hidden">-->
+                            <#--                                                        <button type="submit" class="btn btn-link text-dark">-->
+                            <#--                                                            <p class="mt-0 mb-1">${c.getSender().getNickname()}</p>-->
+                            <#--                                                        </button>-->
+                            <#--                                                    </form>-->
+                            <#--                                                    <p>${c.getText()}</p>-->
+                            <#--                                                    <p class="comment-date">-->
+                            <#--                                                        <small>${c.getStringDate()}</small>-->
+                            <#--                                                    </p>-->
+                            <#--                                                </div>-->
+                            <#--                                            </li>-->
+                            <#--                                        </ul>-->
+                            <#--                                    </li>-->
+                            <#--                                </div>-->
+                            <#--                            </#list>-->
 
                         </div>
                     </div>
@@ -137,6 +142,7 @@
             </div>
         </div>
     </div>
+    </body>
 </#macro>
 
 <@main/>

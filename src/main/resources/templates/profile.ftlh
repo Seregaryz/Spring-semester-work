@@ -14,6 +14,7 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/StyleForMain.css">
     <link rel="stylesheet" href="css/extra-styles.css">
+    <#import "spring.ftl" as spring />
     <style>
 
         .borderImg {
@@ -53,17 +54,21 @@
 </#macro>
 
 <#macro content>
-
+    <head>
+        <meta charset="UTF-8">
+        <@links/>
+    </head>
+    <body>
     <div class="row w-100">
         <div class="col-3">
             <div class="nav flex-column nav-pills h-100vh bg-dark" id="v-pills-tab" role="tablist"
                  aria-orientation="vertical">
                 <a class="btn nav-link active text-white font-18px btn-dark" id="v-pills-home-tab" data-toggle="pill"
                    href="#v-pills-home"
-                   role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
+                   role="tab" aria-controls="v-pills-home" aria-selected="true"><@spring.message 'profile_page.profile'/></a>
                 <a class="btn nav-link text-white font-18px btn-dark" id="v-pills-profile-tab" data-toggle="pill"
                    href="#v-pills-profile"
-                   role="tab" aria-controls="v-pills-profile" aria-selected="false">Debates</a>
+                   role="tab" aria-controls="v-pills-profile" aria-selected="false"><@spring.message 'profile_page.debates'/></a>
             </div>
         </div>
         <div class="col-9 pl-xl-5">
@@ -77,7 +82,8 @@
                                 <img src="${user.getPhotoPath()}" alt="Фотография" width="200" height="255"
                                      class="img-fluid user-profile-photo mb-3">
                                 <div class="mt-5">
-                                    <a href="/addPost" class="btn btn-dark">Add news</a>
+                                    <a href="/addPost"
+                                       class="btn btn-dark"><@spring.message 'base.element.add_new'/></a>
                                 </div>
                             </div>
                             <div class="col mt-3 ml-5">
@@ -92,11 +98,11 @@
                                     <p>Surname</p>
                                     <p><b>${user.getSurname()}</b></p>
                                 </div>
-<#--                                <div class="form-group mb-2 border border-secondary p-2"-->
-<#--                                     style="border-radius: 2px; width: 300px">-->
-<#--                                    <p>sex</p>-->
-<#--                                    <p><b>${user.getSex()}</b></p>-->
-<#--                                </div>-->
+                                <#--                                <div class="form-group mb-2 border border-secondary p-2"-->
+                                <#--                                     style="border-radius: 2px; width: 300px">-->
+                                <#--                                    <p>sex</p>-->
+                                <#--                                    <p><b>${user.getSex()}</b></p>-->
+                                <#--                                </div>-->
                                 <div class="form-group mb-2 border border-secondary p-2"
                                      style="border-radius: 2px; width: 300px">
                                     <p>Nickname</p>
@@ -108,7 +114,7 @@
                                     <p><b>${user.getEmail()}</b></p>
                                 </div>
                                 <div class="mt-5">
-                                    <a href="/profileRedaction" class="btn btn-dark">Редактировать профиль</a>
+                                    <a href="/profileRedaction" class="btn btn-dark"><@spring.message 'profile_page.redaction'/></a>
                                 </div>
                             </div>
                         </div>
@@ -141,6 +147,7 @@
             </div>
         </div>
     </div>
+    </body>
 </#macro>
 
 <@main/>

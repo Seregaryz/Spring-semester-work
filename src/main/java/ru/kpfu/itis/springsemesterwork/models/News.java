@@ -5,10 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.kpfu.itis.springsemesterwork.models.user.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,4 +27,7 @@ public class News {
     private String header, text, preview;
     private String photoPath;
     private LocalDateTime createdAt;
+
+    @ManyToMany
+    private List<User> userList;
 }

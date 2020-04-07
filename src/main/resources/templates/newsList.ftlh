@@ -4,14 +4,13 @@
     <#include "base-non-authorized.ftl"/>
 </#if>
 
-
-
 <#macro title>news</#macro>
 <#macro links>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <#import "spring.ftl" as spring />
     <style>
 
         .borderImg {
@@ -74,10 +73,15 @@
 </#macro>
 
 <#macro content>
+    <head>
+        <meta charset="UTF-8">
+        <@links/>
+    </head>
+    <body>
     <div class="container container-post">
         <div class="row">
             <div class="col">
-                <h2 class="mb-4">NEWS</h2>
+                <h2 class="mb-4"><@spring.message 'base.element.news'/></h2>
             </div>
         </div>
         <#list  news as n>
@@ -103,6 +107,7 @@
             </div>
         </#list>
     </div>
+    </body>
 </#macro>
 
 <@main/>

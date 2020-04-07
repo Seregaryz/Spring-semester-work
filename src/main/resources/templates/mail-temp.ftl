@@ -10,6 +10,7 @@
     <script type="text/javascript" src="/static/js/bootstrap-filestyle.min.js"></script>
     <script type="text/javascript" src="/static/js/bootstrap.js"></script>
     <script type="text/javascript" src="/static/js/jquery-3.4.1.js"></script>
+    <#import "spring.ftl" as spring />
 </head>
 <body style="background-color:#cccccc">
 <div>
