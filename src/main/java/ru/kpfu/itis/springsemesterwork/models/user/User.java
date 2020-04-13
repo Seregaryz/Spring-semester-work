@@ -25,6 +25,7 @@ public class User {
     private String nickname;
     private String surname;
     private String name;
+    private String number;
     private String photoPath;
     private LocalDateTime createdAt;
 

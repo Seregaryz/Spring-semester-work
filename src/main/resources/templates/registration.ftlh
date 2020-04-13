@@ -75,8 +75,6 @@
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/hamburgers.css">
     <link rel="stylesheet" type="text/css" href="css/animsition.css">
@@ -94,73 +92,102 @@
 </#macro>
 
 <#macro content>
-    <div class="container-login100">
-    <div class="row w-100">
-        <div class="col-7 ">
-            <form class="card card-block m-x-auto bg-faded form-width" action="/signUp" method="post">
-                <legend class="m-b-1 text-xs-center">Registration</legend>
-                <div class="form-group input-group">
+    <head>
+        <meta charset="UTF-8">
+        <@links/>
+    </head>
+    <body class="background-blue">
+    <div class="limiter">
+        <div class="container-login100 mt-5">
+            <div class="row w-100">
+                <div class="col-7 mt-1">
+                    <form class="card card-block m-x-auto bg-faded form-width" action="/signUp" method="post">
+                        <legend class="m-b-1 text-xs-center">Registration</legend>
+                        <div class="form-group input-group">
 						<span class="has-float-label">
 							<input class="form-control" id="name" type="text" placeholder="name" name="name"/>
 							<label for="name">Name</label>
 						</span>
-                    <span class="has-float-label">
+                            <span class="has-float-label">
 							<input class="form-control" id="surname" type="text" placeholder="surname" name="surname"/>
 							<label for="surname">Surname</label>
 						</span>
-                </div>
-                <div class="form-group text-center">
-                    <div class="form-group input-group">
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="form-group input-group">
 						<span class="has-float-label">
 							<input class="form-control" id="nickname" type="text" placeholder="nickname"
                                    name="nickname"/>
 							<label for="nickname">Nickname</label>
 						</span>
-                    </div>
-                    <div class="form-group input-group mt-1">
+                            </div>
+                            <div class="form-group input-group">
+						<span class="has-float-label">
+							<input class="form-control" id="number" type="text" placeholder="number"
+                                   name="number"/>
+							<label for="number">Number</label>
+						</span>
+                            </div>
+                            <div class="form-group input-group mt-1">
 						<span class="has-float-label">
 							<input class="form-control" id="email" type="email" placeholder="name@example.com"
                                    name="email"/>
 							<label for="email">E-mail</label>
 						</span>
-                    </div>
-                    <div id="place2">
-                    </div>
-                    <div class="form-group has-float-label">
-                        <input class="form-control" id="password" type="password" placeholder="••••••••"
-                               name="password"/>
-                        <label for="password">Password</label>
-                    </div>
-                    <div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn">Sign up</button>
-                    </div>
-                    <p>
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            <a href="/signIn">have an account? login</a>
-                        </button>
-                    </div>
-                </div>
+                            </div>
+                            <div id="place2">
+                            </div>
+                            <div class="form-group has-float-label">
+                                <input class="form-control" id="password" type="password" placeholder="••••••••"
+                                       name="password"/>
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="container-login100-form-btn">
+                                <button type="submit" class="login100-form-btn">Sign up</button>
+                            </div>
+                            <p>
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn">
+                                    <a href="/signIn">have an account? login</a>
+                                </button>
+                            </div>
+                        </div>
 
-            </form>
-        </div>
-        <div class="col-4 mt-5">
-            <div class="my-2 mx-auto">
-                <label for="my-file-selector" style="font-size: 20px">Аватар</label>
-                <input type="file" name="photo" class="filestyle" id="photo">
-                <#--                           data-classButton="login100-form-btn"-->
-                <#--                           data-classIcon="icon-plus"-->
-                <#--                           data-buttonText="Выбрать файлы" multiple accept="image/*,image/jpeg">-->
-                <div class="dis-flex" id="place1">
+                    </form>
                 </div>
-                <div class="container-login100-form-btn mt-5">
-                    <button class="login100-form-btn" onclick="sendFile()">Загрузить фото</button>
+                <div class="col-5 mt-5">
+                    <div class="my-2 mx-auto">
+                        <#--                <label for="my-file-selector" style="font-size: 20px">Аватар</label>-->
+                        <div class="input_file">
+                            <input type="file" name="photo" id="photo">
+                            <div class="fake_file">
+                                <input type="text" class="fake_file_input">
+                                <input type="button" value="Выбрать" class="fake_file_btn">
+                            </div>
+                        </div>
+                        <#--                           data-classButton="login100-form-btn"-->
+                        <#--                           data-classIcon="icon-plus"-->
+                        <#--                           data-buttonText="Выбрать файлы" multiple accept="image/*,image/jpeg">-->
+                        <div class="dis-flex" id="place1" style="height: 285px">
+                        </div>
+                        <div class="container-login100-form-btn mt-1 w-75">
+                            <button class="login100-form-btn" onclick="sendFile()">Загрузить фото</button>
+                        </div>
+                    </div>
+                    <script>
+                        $('.input_file input[type=file]').change(function(){
+                            var t = $(this).val();
+                            if(t.indexOf('C:\\fakepath\\')+1)
+                                t = t.substr(12);
+                            var e = $(this).next().find('.fake_file_input');
+                            e.val(t);
+                        });
+                    </script>
                 </div>
             </div>
-
         </div>
     </div>
-    </div>
+    </body>
 </#macro>
 
 <@main/>

@@ -87,15 +87,15 @@
                                 </div>
                             </div>
                             <div class="col mt-3 ml-5">
-                                <h2>Profile</h2>
+                                <h2><@spring.message 'profile_page.profile'/></h2>
                                 <div class="form-group mb-2 border border-secondary p-2"
                                      style="border-radius: 2px; width: 300px">
-                                    <p>Name</p>
+                                    <p><@spring.message 'profile_page.name'/></p>
                                     <p><b>${user.getName()}</b></p>
                                 </div>
                                 <div class="form-group mb-2 border border-secondary p-2"
                                      style="border-radius: 2px; width: 300px">
-                                    <p>Surname</p>
+                                    <p><@spring.message 'profile_page.surname'/></p>
                                     <p><b>${user.getSurname()}</b></p>
                                 </div>
                                 <#--                                <div class="form-group mb-2 border border-secondary p-2"-->
@@ -105,12 +105,12 @@
                                 <#--                                </div>-->
                                 <div class="form-group mb-2 border border-secondary p-2"
                                      style="border-radius: 2px; width: 300px">
-                                    <p>Nickname</p>
+                                    <p><@spring.message 'profile_page.nickname'/></p>
                                     <p><b>${user.getNickname()}</b></p>
                                 </div>
                                 <div class="form-group mb-2 border border-secondary p-2"
                                      style="border-radius: 2px; width: 300px">
-                                    <p>E-mail</p>
+                                    <p><@spring.message 'profile_page.email'/></p>
                                     <p><b>${user.getEmail()}</b></p>
                                 </div>
                                 <div class="mt-5">

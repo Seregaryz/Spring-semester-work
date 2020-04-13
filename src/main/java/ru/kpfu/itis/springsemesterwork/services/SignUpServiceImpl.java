@@ -28,6 +28,9 @@ public class SignUpServiceImpl implements SignUpService {
     private UsersRepository usersRepository;
 
     @Autowired
+    private MessageSendService messageSendService;
+
+    @Autowired
     private EmailService emailService;
 
     @Autowired
@@ -49,11 +52,13 @@ public class SignUpServiceImpl implements SignUpService {
                 .createdAt(LocalDateTime.now())
                 .state(State.NOT_CONFIRMED)
                 .role(Role.USER)
+                .number(form.getNumber())
                 .photoPath(form.getPhotoPath())
                 .nickname(form.getNickname())
                 .confirmCode(UUID.randomUUID().toString())
                 .build();
         usersRepository.save(user);
+        messageSendService.sendMessage(user.getNumber(), user.getName(), user.getConfirmCode());
         Template t = null;
         Map model = new HashMap();
         model.put("username", user.getEmail());

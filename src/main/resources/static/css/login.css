@@ -1,15 +1,15 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-@font-face {
-    font-family: OpenSans-Regular;
-    src: url('../fonts/OpenSans/OpenSans-Regular.ttf');
-}
+/*@font-face {*/
+/*    font-family: OpenSans-Regular;*/
+/*    src: url('../fonts/OpenSans/OpenSans-Regular.ttf');*/
+/*}*/
 
-@font-face {
-    font-family: OpenSans-Bold;
-    src: url('../fonts/OpenSans/OpenSans-Bold.ttf');
-}
+/*@font-face {*/
+/*    font-family: OpenSans-Bold;*/
+/*    src: url('../fonts/OpenSans/OpenSans-Bold.ttf');*/
+/*}*/
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -23,21 +23,67 @@
 
 body, html {
     height: 100%;
-    font-family: OpenSans-Regular, sans-serif;
+    /*font-family: OpenSans-Regular, sans-serif;*/
 }
 
-/*---------------------------------------------*/
-a {
-    font-family: OpenSans-Regular;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #666666;
-    margin: 0px;
-    transition: all 0.4s;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
+.input_file {
+    margin: 0 0 10px 0;
 }
+.input_file input[type=file] {
+    opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    height: 60px;
+    width: 100%;
+}
+
+.fake_file {
+    height: 60px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.fake_file_input{
+    position: relative;
+    height: 60px;
+    width: 50%;
+}
+
+.fake_file_btn {
+    font-family: OpenSans-Bold;
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    height: 60px;
+    width: 25%;
+
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    overflow: hidden;
+    background: #111111;
+
+}
+
+
+/*---------------------------------------------*/
+/*a {*/
+/*    !*font-family: OpenSans-Regular;*!*/
+/*    font-size: 14px;*/
+/*    line-height: 1.7;*/
+/*    color: #666666;*/
+/*    margin: 0px;*/
+/*    transition: all 0.4s;*/
+/*    -webkit-transition: all 0.4s;*/
+/*    -o-transition: all 0.4s;*/
+/*    -moz-transition: all 0.4s;*/
+/*}*/
 
 a:focus {
     outline: none !important;
@@ -182,6 +228,7 @@ iframe {
 
 /*//////////////////////////////////////////////////////////////////
 [ login ]*/
+
 .limiter {
     width: 100%;
     margin: 0 auto;
@@ -189,7 +236,6 @@ iframe {
 
 .container-login100 {
     width: 100%;
-    min-height: 100vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -199,7 +245,9 @@ iframe {
     justify-content: center;
     align-items: center;
     padding: 15px;
+}
 
+.background-blue {
     background: #2575fc;
     background: -webkit-linear-gradient(left, #6a11cb, #2575fc);
     background: -o-linear-gradient(left, #6a11cb, #2575fc);

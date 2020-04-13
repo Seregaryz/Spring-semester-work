@@ -10,6 +10,7 @@ public class SignUpDto {
     private String name;
     private String surname;
     private String nickname;
+    private String number;
     private String photoPath;
     private Sex sex;
 }

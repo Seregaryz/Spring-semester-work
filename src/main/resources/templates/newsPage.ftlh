@@ -100,12 +100,12 @@
                         <div>
                             <form action="/signIn" method="get">
                                 <div class="form-group my-3">
-                                    <label for="comment">Add your comment</label>
+                                    <label for="comment"><@spring.message 'news_page.add_comment'/></label>
                                     <textarea class="form-control" id="comment" rows="3"
-                                              name="text" placeholder="Comment"></textarea>
+                                              name="text" placeholder="<@spring.message 'news_page.comment_placeholder'/>"></textarea>
                                     <input name="id" value="${news.getId()}" type="hidden">
                                 </div>
-                                <input type="submit" class="btn btn-dark float-right my-3" value="Publish">
+                                <input type="submit" class="btn btn-dark float-right my-3" value="<@spring.message  'add_post.add_publish'/>">
                             </form>
                             <p class="mt-5"><@spring.message 'news_page.commentaries'/></p>
                             <#--                            <#list comments as c>-->

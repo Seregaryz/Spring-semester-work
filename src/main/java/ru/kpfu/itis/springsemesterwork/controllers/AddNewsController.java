@@ -14,7 +14,7 @@ import ru.kpfu.itis.springsemesterwork.security.UserDetailsImpl;
 import ru.kpfu.itis.springsemesterwork.services.NewsService;
 
 @Controller
-public class NewPostController {
+public class AddNewsController {
 
     @Autowired
     private NewsService newsService;

@@ -5,8 +5,6 @@
 <#macro links>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/hamburgers.css">
     <link rel="stylesheet" type="text/css" href="css/animsition.css">
@@ -22,9 +20,9 @@
         <meta charset="UTF-8">
         <@links/>
     </head>
-    <body>
+    <body class="background-blue">
     <div class="limiter">
-        <div class="container-login100">
+        <div class="container-login100 mt-5">
             <div class="wrap-login100 p-b-160 p-t-50">
                 <form class="login100-form validate-form" action="/signIn" method="post">
 					<span class="login100-form-title p-b-43">
@@ -63,13 +61,13 @@
     </div>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/animsition.js"></script>
-    <script src="../js/popper.js"></script>
+    <script src="js/popper.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="../js/select2.min.js"></script>
-    <script src="../js/moment.min.js"></script>
-    <script src="../js/daterangepicker.js"></script>
-    <script src="../js/countdowntime.js"></script>
-    <script src="../js/login.js"></script>
+    <script src="js/select2.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/countdowntime.js"></script>
+    <script src="js/login.js"></script>
     </body>
 </#macro>
 
