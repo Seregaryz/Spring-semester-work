@@ -58,7 +58,6 @@ public class SignUpServiceImpl implements SignUpService {
                 .confirmCode(UUID.randomUUID().toString())
                 .build();
         usersRepository.save(user);
-        messageSendService.sendMessage(user.getNumber(), user.getName(), user.getConfirmCode());
         Template t = null;
         Map model = new HashMap();
         model.put("username", user.getEmail());

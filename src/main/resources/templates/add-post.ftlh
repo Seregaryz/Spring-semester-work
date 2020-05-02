@@ -74,7 +74,7 @@
                 <#--                           data-classIcon="icon-plus"-->
                 <#--                           data-buttonText="Выбрать файлы" multiple accept="image/*,image/jpeg">-->
                 <div class="mt-5">
-                    <button class="btn btn-dark" onclick="sendFile()"><@spring.message  'add_post.add_load'/></button>
+                    <button class="btn btn-dark" onclick="sendFilePost()"><@spring.message  'add_post.add_load'/></button>
                 </div>
             </div>
             <div class="mt-5" id="place1">

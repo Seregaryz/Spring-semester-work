@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+        <script src="js/jquery-3.4.1.js"></script>
         <script src="js/bootstrap.js"></script>
         <#import "spring.ftl" as spring />
         <@links/>

@@ -1,4 +1,4 @@
-function sendFile() {
+function sendFilePost() {
     // данные для отправки
     let formData = new FormData();
     // забрал файл из input
@@ -17,7 +17,6 @@ function sendFile() {
     })
         .done(function (response) {
             let fileUrl = 'http://localhost/files/' + response;
-            $('#place1').val(' ');
             $('#place1').append('<img src = "' + fileUrl + '" height="280" style="max-width: 450px"/>');
             $('#place2').append('<input type="hidden" name="photoPath" value="' + fileUrl + '">')
         })

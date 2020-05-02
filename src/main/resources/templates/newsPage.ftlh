@@ -10,7 +10,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
     <#import "spring.ftl" as spring />
     <style>
@@ -98,42 +97,42 @@
                             </div>
                         </div>
                         <div>
-                            <form action="/signIn" method="get">
+                            <form id="comment">
                                 <div class="form-group my-3">
                                     <label for="comment"><@spring.message 'news_page.add_comment'/></label>
-                                    <textarea class="form-control" id="comment" rows="3"
-                                              name="text" placeholder="<@spring.message 'news_page.comment_placeholder'/>"></textarea>
-                                    <input name="id" value="${news.getId()}" type="hidden">
+                                    <textarea class="form-control" id="text" rows="3"
+                                              name="text"
+                                              placeholder="<@spring.message 'news_page.comment_placeholder'/>"></textarea>
+                                    <input name="idNews" value="${news.getId()}" type="hidden">
+                                    <input name="idUser" value="${user.getId()}" type="hidden">
                                 </div>
-                                <input type="submit" class="btn btn-dark float-right my-3" value="<@spring.message  'add_post.add_publish'/>">
+                                <button class="btn btn-dark float-right my-3" id="send"><@spring.message  'add_post.add_publish'/></button>
                             </form>
                             <p class="mt-5"><@spring.message 'news_page.commentaries'/></p>
-                            <#--                            <#list comments as c>-->
-                            <#--                                <div class="card-body border border-dark my-3">-->
-                            <#--                                    <li class="media my-4">-->
-                            <#--                                        <ul class="list-unstyled">-->
-                            <#--                                            <li class="media">-->
-                            <#--                                                <img src="${c.getSender().getPhotoPath()}" alt="avatar"-->
-                            <#--                                                     class="mr-3 img-fluid media-author-photo img-circle"-->
-                            <#--                                                     style="width: 50px; height: 50px;">-->
-                            <#--                                                <div class="media-body">-->
-                            <#--                                                    <form action="/profileOfUser" method="get">-->
-                            <#--                                                        <input name="id" value="${c.getSender().getId()}" type="hidden">-->
-                            <#--                                                        <button type="submit" class="btn btn-link text-dark">-->
-                            <#--                                                            <p class="mt-0 mb-1">${c.getSender().getNickname()}</p>-->
-                            <#--                                                        </button>-->
-                            <#--                                                    </form>-->
-                            <#--                                                    <p>${c.getText()}</p>-->
-                            <#--                                                    <p class="comment-date">-->
-                            <#--                                                        <small>${c.getStringDate()}</small>-->
-                            <#--                                                    </p>-->
-                            <#--                                                </div>-->
-                            <#--                                            </li>-->
-                            <#--                                        </ul>-->
-                            <#--                                    </li>-->
-                            <#--                                </div>-->
-                            <#--                            </#list>-->
-
+                            <div id="place1"></div>
+                            <#list comments as c>
+                                <div class="card-body border border-dark my-3">
+                                    <li class="media my-4">
+                                        <ul class="list-unstyled">
+                                            <li class="media">
+                                                <img src="${c.getSender().getPhotoPath()}" alt="avatar"
+                                                     class="mr-3 img-fluid media-author-photo img-circle"
+                                                     style="width: 50px; height: 50px;">
+                                                <div class="media-body">
+                                                    <form action="/profileOfUser" method="get">
+                                                        <input name="id" value="${c.getSender().getId()}" type="hidden">
+                                                        <button type="submit" class="btn btn-link text-dark">
+                                                            <p class="mt-0 mb-1">${c.getSender().getNickname()}</p>
+                                                        </button>
+                                                    </form>
+                                                    <p>${c.getText()}</p>
+                                                    <p class="comment-date"><small>${c.getCreatedAt()}</small></p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </div>
+                            </#list>
                         </div>
                     </div>
                 </div>
@@ -142,6 +141,34 @@
             </div>
         </div>
     </div>
+    <script>
+        let buttonSend = document.getElementById("send");
+        buttonSend.onclick = function () {
+            let formData = new FormData();
+            let form = ($('#comment'))[0]['commentForm'];
+            [].forEach.call(form, function (file, i, commentForm) {
+                formData.append("form", file);
+            });
+            $.ajax({
+                type: "POST",
+                url: "/addComment",
+                data: formData,
+                processData: false,
+                contentType: false
+            })
+                .done(function (response) {
+                    $('#place1').append('<li class="media"><img src="' + ${user.getPhotoPath()} +
+                            '" alt="avatar" class="mr-3 img-fluid media-author-photo img-circle" style="width: 50px; height: 50px;">' +
+                        '<div class="media-body"><form action="/profileOfUser" method="get"> <input name="id" value="' + ${user.getId()} +
+                            '" type="hidden"><button type="submit" class="btn btn-link text-dark"><p class="mt-0 mb-1">' + ${user.getNickname()} +
+                            '</p></button></form><p>' + document.forms["comment"].elements['text'].value() + '</p><p class="comment-date"><small>' +
+                        response + '</small></p></div></li>');
+                })
+                .fail(function () {
+                    alert('Error')
+                });
+        };
+    </script>
     </body>
 </#macro>
 

@@ -87,20 +87,19 @@
     <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="js/jquery-3.4.1.js"></script>
-    <script src="js/sendFile.js"></script>
+    <script src="js/sendCode.js"></script>
     <#import "spring.ftl" as spring />
 </#macro>
 
 <#macro content>
     <head>
-        <meta charset="UTF-8">
         <@links/>
     </head>
     <body class="background-blue">
     <div class="limiter">
-        <div class="container-login100 mt-5">
+        <div class="container-login100 mt-4">
             <div class="row w-100">
-                <div class="col-7 mt-1">
+                <div class="col-7">
                     <form class="card card-block m-x-auto bg-faded form-width" action="/signUp" method="post">
                         <legend class="m-b-1 text-xs-center">Registration</legend>
                         <div class="form-group input-group">
@@ -121,13 +120,6 @@
 							<label for="nickname">Nickname</label>
 						</span>
                             </div>
-                            <div class="form-group input-group">
-						<span class="has-float-label">
-							<input class="form-control" id="number" type="text" placeholder="number"
-                                   name="number"/>
-							<label for="number">Number</label>
-						</span>
-                            </div>
                             <div class="form-group input-group mt-1">
 						<span class="has-float-label">
 							<input class="form-control" id="email" type="email" placeholder="name@example.com"
@@ -142,8 +134,42 @@
                                        name="password"/>
                                 <label for="password">Password</label>
                             </div>
+                            <div class="form-group has-float-label">
+                                <input class="form-control" id="password" type="password" placeholder="••••••••"
+                                       name="password"/>
+                                <label for="password">Repeat Password</label>
+                            </div>
+                                <div class="form-group input-group">
+						<span class="has-float-label">
+							<input class="form-control" id="number" type="text" placeholder="number"
+                                   name="number"/>
+							<label for="number">Number</label>
+						</span>
+                                </div>
+                            <div id="place3">
+                            </div>
+                                <div class="form-group input-group mt-1">
+						<span class="has-float-label">
+							  <div class="container-login100-form-btn">
+                                <button type="button" class="login100-form-btn" onclick="sendCode()">Send code</button>
+                            </div>
+						</span>
+                                </div>
+                            <div class="form-group input-group">
+						<span class="has-float-label">
+								<input class="form-control" id="code" type="text" placeholder="code" name="code"/>
+							<label for="code">Code</label>
+						</span>
+                            </div>
+                            <div class="form-group input-group mt-1">
+						<span class="has-float-label">
+							  <div class="container-login100-form-btn">
+                                <button type="button" class="login100-form-btn" onclick="checkCodeAndPhoto()">Confirm code</button>
+                            </div>
+						</span>
+                            </div>
                             <div class="container-login100-form-btn">
-                                <button type="submit" class="login100-form-btn">Sign up</button>
+                                <button type="submit" id="signUp" class="login100-form-btn" disabled="disabled">Sign up</button>
                             </div>
                             <p>
                             <div class="container-login100-form-btn">
@@ -152,12 +178,11 @@
                                 </button>
                             </div>
                         </div>
-
                     </form>
                 </div>
                 <div class="col-5 mt-5">
                     <div class="my-2 mx-auto">
-                        <#--                <label for="my-file-selector" style="font-size: 20px">Аватар</label>-->
+                        <label for="my-file-selector" style="font-size: 20px">Аватар</label>
                         <div class="input_file">
                             <input type="file" name="photo" id="photo">
                             <div class="fake_file">
@@ -171,13 +196,13 @@
                         <div class="dis-flex" id="place1" style="height: 285px">
                         </div>
                         <div class="container-login100-form-btn mt-1 w-75">
-                            <button class="login100-form-btn" onclick="sendFile()">Загрузить фото</button>
+                            <button class="login100-form-btn" onclick="sendFile(true)">Загрузить фото</button>
                         </div>
                     </div>
                     <script>
-                        $('.input_file input[type=file]').change(function(){
+                        $('.input_file input[type=file]').change(function () {
                             var t = $(this).val();
-                            if(t.indexOf('C:\\fakepath\\')+1)
+                            if (t.indexOf('C:\\fakepath\\') + 1)
                                 t = t.substr(12);
                             var e = $(this).next().find('.fake_file_input');
                             e.val(t);

@@ -10,7 +10,8 @@ import org.springframework.web.client.RestTemplate;
 public class MessageSendServiceImpl implements MessageSendService {
 
     @Override
-    public void sendMessage(String number, String name, String confirmCode) {
+    public int sendMessage(String number) {
+        int code = (int)(Math.random() * 10000);
         RestTemplate restTemplate = new RestTemplate();
         String messageServiceUrl = "https://gate.smsaero.ru/v2/sms/send";
         HttpHeaders headers = new HttpHeaders();
@@ -19,9 +20,9 @@ public class MessageSendServiceImpl implements MessageSendService {
         map.add("sign", "SMS Aero");
         map.add("channel", "DIRECT");
         map.add("number", number);
-        map.add("text", name + ", please, confirm your account. To verify your account, follow this link: "
-                + "localhost/confirm/" + confirmCode);
+        map.add("text", "Your confirm code: " + code);
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(map, headers);
         restTemplate.postForEntity(messageServiceUrl, request , String.class);
+        return code;
     }
 }

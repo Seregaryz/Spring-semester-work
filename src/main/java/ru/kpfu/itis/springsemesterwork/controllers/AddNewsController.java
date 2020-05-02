@@ -30,7 +30,7 @@ public class AddNewsController {
     }
 
     @PostMapping("/addPost")
-    public String signUp(News news) {
+    public String addNews(News news) {
         newsService.save(news);
         return "redirect:/newsList";
     }
