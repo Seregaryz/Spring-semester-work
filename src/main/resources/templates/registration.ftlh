@@ -134,11 +134,11 @@
                                        name="password"/>
                                 <label for="password">Password</label>
                             </div>
-                            <div class="form-group has-float-label">
-                                <input class="form-control" id="password" type="password" placeholder="••••••••"
-                                       name="password"/>
-                                <label for="password">Repeat Password</label>
-                            </div>
+<#--                            <div class="form-group has-float-label">-->
+<#--                                <input class="form-control" id="repeatPassword" type="password" placeholder="••••••••"-->
+<#--                                       name="repeatPassword"/>-->
+<#--                                <label for="repeatPassword">Repeat Password</label>-->
+<#--                            </div>-->
                                 <div class="form-group input-group">
 						<span class="has-float-label">
 							<input class="form-control" id="number" type="text" placeholder="number"
@@ -148,19 +148,19 @@
                                 </div>
                             <div id="place3">
                             </div>
-                                <div class="form-group input-group mt-1">
-						<span class="has-float-label">
-							  <div class="container-login100-form-btn">
-                                <button type="button" class="login100-form-btn" onclick="sendCode()">Send code</button>
-                            </div>
-						</span>
-                                </div>
-                            <div class="form-group input-group">
-						<span class="has-float-label">
-								<input class="form-control" id="code" type="text" placeholder="code" name="code"/>
-							<label for="code">Code</label>
-						</span>
-                            </div>
+<#--                                <div class="form-group input-group mt-1">-->
+<#--						<span class="has-float-label">-->
+<#--							  <div class="container-login100-form-btn">-->
+<#--                                <button type="button" class="login100-form-btn" onclick="sendCode()">Send code</button>-->
+<#--                            </div>-->
+<#--						</span>-->
+<#--                                </div>-->
+<#--                            <div class="form-group input-group">-->
+<#--						<span class="has-float-label">-->
+<#--								<input class="form-control" id="code" type="text" placeholder="code" name="code"/>-->
+<#--							<label for="code">Code</label>-->
+<#--						</span>-->
+<#--                            </div>-->
                             <div class="form-group input-group mt-1">
 						<span class="has-float-label">
 							  <div class="container-login100-form-btn">

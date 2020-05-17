@@ -9,7 +9,6 @@ import ru.kpfu.itis.springsemesterwork.models.user.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -30,4 +29,5 @@ public class News {
 
     @ManyToMany
     private List<User> userList;
+
 }

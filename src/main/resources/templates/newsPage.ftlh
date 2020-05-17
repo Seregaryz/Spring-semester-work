@@ -97,16 +97,18 @@
                             </div>
                         </div>
                         <div>
-                            <form id="comment">
+                            <form action="/addComment" id="comment" method="post">
                                 <div class="form-group my-3">
                                     <label for="comment"><@spring.message 'news_page.add_comment'/></label>
                                     <textarea class="form-control" id="text" rows="3"
                                               name="text"
                                               placeholder="<@spring.message 'news_page.comment_placeholder'/>"></textarea>
-                                    <input name="idNews" value="${news.getId()}" type="hidden">
-                                    <input name="idUser" value="${user.getId()}" type="hidden">
+                                    <input name="idPost" id="idPost" value="${news.getId()}" type="hidden">
+                                    <#if isAuth == true>
+                                        <input name="idSender" id="idSender" value="${user.getId()}" type="hidden">
+                                    </#if>
                                 </div>
-                                <button class="btn btn-dark float-right my-3" id="send"><@spring.message  'add_post.add_publish'/></button>
+                                <button type="submit" class="btn btn-dark float-right my-3" id="send"><@spring.message  'add_post.add_publish'/></button>
                             </form>
                             <p class="mt-5"><@spring.message 'news_page.commentaries'/></p>
                             <div id="place1"></div>
@@ -120,7 +122,7 @@
                                                      style="width: 50px; height: 50px;">
                                                 <div class="media-body">
                                                     <form action="/profileOfUser" method="get">
-                                                        <input name="id" value="${c.getSender().getId()}" type="hidden">
+                                                        <input name="userId" id="userId" value="${c.getSender().getId()}" type="hidden">
                                                         <button type="submit" class="btn btn-link text-dark">
                                                             <p class="mt-0 mb-1">${c.getSender().getNickname()}</p>
                                                         </button>
@@ -141,34 +143,6 @@
             </div>
         </div>
     </div>
-    <script>
-        let buttonSend = document.getElementById("send");
-        buttonSend.onclick = function () {
-            let formData = new FormData();
-            let form = ($('#comment'))[0]['commentForm'];
-            [].forEach.call(form, function (file, i, commentForm) {
-                formData.append("form", file);
-            });
-            $.ajax({
-                type: "POST",
-                url: "/addComment",
-                data: formData,
-                processData: false,
-                contentType: false
-            })
-                .done(function (response) {
-                    $('#place1').append('<li class="media"><img src="' + ${user.getPhotoPath()} +
-                            '" alt="avatar" class="mr-3 img-fluid media-author-photo img-circle" style="width: 50px; height: 50px;">' +
-                        '<div class="media-body"><form action="/profileOfUser" method="get"> <input name="id" value="' + ${user.getId()} +
-                            '" type="hidden"><button type="submit" class="btn btn-link text-dark"><p class="mt-0 mb-1">' + ${user.getNickname()} +
-                            '</p></button></form><p>' + document.forms["comment"].elements['text'].value() + '</p><p class="comment-date"><small>' +
-                        response + '</small></p></div></li>');
-                })
-                .fail(function () {
-                    alert('Error')
-                });
-        };
-    </script>
     </body>
 </#macro>
 

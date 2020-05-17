@@ -30,8 +30,8 @@
                     <a class="nav-link" href="/signIn"><@spring.message 'base.element.login'/><span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 mr-2" action="/searchNews" method="get">
-                <input class="form-control mr-sm-2" type="search" placeholder="<@spring.message 'base.element.search_placeholder'/>" aria-label="Search" name="pattern">
+            <form class="form-inline my-2 my-lg-0 mr-2" action="/searchNews" method="post">
+                <input class="form-control mr-sm-2" type="text" placeholder="<@spring.message 'base.element.search_placeholder'/>" aria-label="Search" name="q" id="q">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><@spring.message 'base.element.search_button'/></button>
             </form>
         </div>

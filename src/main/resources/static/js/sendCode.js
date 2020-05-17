@@ -55,11 +55,14 @@ function sendCode() {
         .fail(function () {
             alert('Error')
         });
+
+    checkCodeAndPhoto()
 }
 
 function checkCodeAndPhoto() {
-    let userCodeInput = document.getElementById("code").value;
-    if(isLoaded === true && userCodeInput === code.toString()){
+    //let userCodeInput = document.getElementById("code").value;
+    //&& userCodeInput === code.toString() добавь снизу в скобку
+    if(isLoaded === true){
         document.getElementById("signUp").disabled = false
     }
 }

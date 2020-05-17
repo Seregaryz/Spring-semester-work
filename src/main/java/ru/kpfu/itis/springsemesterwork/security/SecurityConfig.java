@@ -3,7 +3,6 @@ package ru.kpfu.itis.springsemesterwork.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -30,13 +29,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/profile").authenticated()
                 .antMatchers("/signUp").permitAll()
                 .antMatchers("/confirm/**").permitAll()
-                .antMatchers("/news").permitAll();
+                .antMatchers("/news").permitAll()
+                .antMatchers("/profileOfUser").permitAll()
+                .antMatchers("/search/**").permitAll()
+                .antMatchers("/debates").authenticated();
 
         http.formLogin()
                 .loginPage("/signIn")
                 .defaultSuccessUrl("/newsList")
                 .failureUrl("/signIn?error")
                 .usernameParameter("email")
+                .passwordParameter("password")
                 .permitAll();
 
     }

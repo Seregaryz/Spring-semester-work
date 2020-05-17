@@ -36,7 +36,7 @@ public class CommentServiceImpl implements CommentService {
         Comment comment = Comment.builder()
                 .sender(sender)
                 .createdAt(LocalDateTime.now())
-                .idComment(commentDto.getIdPost())
+                .idPost(commentDto.getIdPost())
                 .text(commentDto.getText())
                 .build();
         commentsRepository.save(comment);

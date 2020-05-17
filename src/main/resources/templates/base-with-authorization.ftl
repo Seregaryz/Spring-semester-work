@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
         <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
         <script src="js/jquery-3.4.1.js"></script>
+        <script src="js/popper.js"></script>
         <script src="js/bootstrap.js"></script>
         <#import "spring.ftl" as spring />
         <@links/>
@@ -25,17 +26,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/newsList"><@spring.message 'base.element.news'/></a>
                 </li>
-<#--                <li class="nav-item">-->
-<#--                    <a class="nav-link" href="/debatesList">Debates</a>-->
-<#--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="/debates"><@spring.message 'base.element.debates'/></a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/addPost"><@spring.message 'base.element.add_new'/></a>
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0 mr-2" action="/searchNews" method="get">
-                <input class="form-control mr-sm-2" type="search" placeholder="<@spring.message 'base.element.search_placeholder'/>" aria-label="Search"
-                       name="pattern">
+            <form class="form-inline my-2 my-lg-0 mr-2" action="/searchNews" method="post">
+                <input class="form-control mr-sm-2" type="text" placeholder="<@spring.message 'base.element.search_placeholder'/>" aria-label="Search"
+                       name="q" id="q">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><@spring.message 'base.element.search_button'/></button>
             </form>
             <ul class="navbar-nav mr-0">

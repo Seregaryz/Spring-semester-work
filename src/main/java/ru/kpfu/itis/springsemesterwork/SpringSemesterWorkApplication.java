@@ -22,6 +22,11 @@ public class SpringSemesterWorkApplication {
         return Executors.newCachedThreadPool();
     }
 
+//    @Bean
+//    public ObjectMapper objectMapper() {
+//        return new ObjectMapper();
+//    }
+
     public static void main(String[] args) {
         SpringApplication.run(SpringSemesterWorkApplication.class, args);
     }
