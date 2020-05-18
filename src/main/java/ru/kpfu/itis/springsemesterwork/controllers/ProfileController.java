@@ -25,8 +25,7 @@ public class ProfileController {
     public String getProfile(Authentication authentication, Model model) {
         if (authentication != null) {
             UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-            User user = userService.getUserById(userDetails.getUser().getId());
-            model.addAttribute("user", user);
+            model.addAttribute("user", userDetails.getUser());
             return "profile";
         } else return "redirect:/signIn";
     }
@@ -79,6 +78,7 @@ public class ProfileController {
                 updatedUser.setNickname(form.getNickname());
                 updatedUser.setNumber(form.getNumber());
                 userService.saveUser(updatedUser);
+                ((UserDetailsImpl) authentication.getPrincipal()).setUser(updatedUser);
                 return "redirect:/profile";
             }
         } else return "redirect:/signIn";
