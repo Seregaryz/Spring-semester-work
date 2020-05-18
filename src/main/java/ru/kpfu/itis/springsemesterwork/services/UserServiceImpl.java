@@ -15,4 +15,11 @@ public class UserServiceImpl implements UserService {
     public User getUserById(long id) {
         return usersRepository.findById(id);
     }
+
+    @Override
+    public void saveUser(User newUser) {
+        usersRepository.save(newUser);
+    }
+
+
 }
